@@ -30,15 +30,15 @@ const tools = [
 
 
 function shouldAllowToolCall(query: string) {
-    const realTimeKeywords = [
-        "today", "current", "latest", "now",
-        "price", "weather", "news", "live",
-        "stock", "score", "status"
-    ];
+  const realTimeKeywords = [
+    "today", "current", "latest", "now",
+    "price", "weather", "news", "live",
+    "stock", "score", "status"
+  ];
 
-    return realTimeKeywords.some(k =>
-        query.toLowerCase().includes(k)
-    );
+  return realTimeKeywords.some(k =>
+    query.toLowerCase().includes(k)
+  );
 }
 
 
@@ -81,8 +81,18 @@ I am specially programmed for DRDO (Defence Research and Development Organisatio
 Current date and time (IST): ${currentTimeIST}
 If I am asked about the current time or date, I must answer using the value provided above.
 
-My capabilities:
-1. tavily_search({query}:{query:string}) - Search for latest information and real-time data
+Appsfactor company details:
+- Owner: Rishi Jain
+- Appsfactor Employees:
+    1. Rahul Sharma
+    2. Rahul Rana
+    3. Sumit Saini
+    4. Kunal
+    5. Aayush
+    6. Ajay Kumar
+
+ My capabilities:
+1. tavily_search({query}:{query:string}) - Search for latest information and realtime data
 2. Research analysis and technical assistance
 3. Software engineering guidance
 4. AI/ML model development support
@@ -126,7 +136,7 @@ If user indicates urgent defence-related requirements, prioritize:
         // Tool Call
         if (message.tool_calls?.length) {
             const toolCall = message.tool_calls[0];
-            console.log("Too Call", JSON.stringify(message.tool_calls, null, 2)
+            console.log("Too Call",JSON.stringify(message.tool_calls, null, 2)
             );
 
             if (toolCall.function.name === "tavily_search") {
@@ -135,16 +145,6 @@ If user indicates urgent defence-related requirements, prioritize:
                 if (!query) {
                     return NextResponse.json({ error: "Tool query missing" }, { status: 400 });
                 }
-
-                // if (!shouldAllowToolCall(query)) {
-                //     console.log("TOOL CALL BLOCKED — internal answer sufficient");
-
-                //     return NextResponse.json({
-                //         response:
-                //             "I can answer this without external search. " +
-                //             "Please clarify if you need real-time or verified data."
-                //     });
-                // }
 
                 // Call Tavily
                 const searchResult = await tvly.search(query, {

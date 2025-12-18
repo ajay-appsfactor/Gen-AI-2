@@ -35,6 +35,17 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+User → LLM
+        ↓
+   tool_calls ?
+     ↙     ↘
+   yes      no
+   ↓         ↓
+webSearch   answer
+   ↓
+LLM (final)
+
+
 
 Where is Kedarnath temple in Inda ?
 Where is India Gate in India ?
@@ -42,3 +53,7 @@ What is the new President of India ?
 What is the new Prime Minister of India ?
 What is the Current Weather of Haridwar ?
 what is the day today?
+Who is the owner of Appsfactor company?
+What is the size of Appsfactor company?
+Can you list all the employees of Appsfactor?
+How many employees work at Appsfactor?

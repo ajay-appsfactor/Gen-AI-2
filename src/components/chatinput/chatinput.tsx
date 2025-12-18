@@ -44,7 +44,7 @@ export default function ChatInput({ sendPrompt }: { sendPrompt: (message: string
         >
           {promptInput.length > 0 ? (
             <button type="submit">
-              <ArrowUp height={20} width={20} className="text-white" />
+              <ArrowUp height={20} width={20} className="text-white cursor-pointer" />
             </button>
           ) : (
             <AudioLinesIcon height={20} width={20} className="text-gray-700" strokeWidth={1.5} />
